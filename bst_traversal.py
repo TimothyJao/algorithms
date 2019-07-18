@@ -7,16 +7,16 @@ def inOrderTraverse(tree, array = []):
 	return array
 def preOrderTraverse(tree, array):
     if tree:
-		array.append(tree.value)
-		preOrderTraverse(tree.left, array)
-		preOrderTraverse(tree.right, array)
+        array.append(tree.value)
+        preOrderTraverse(tree.left, array)
+        preOrderTraverse(tree.right, array)
 	
-	return array
+    return array
 
 def postOrderTraverse(tree, array):
     if tree:
-		postOrderTraverse(tree.left, array)
-		postOrderTraverse(tree.right, array)
-		array.append(tree.value)
+        postOrderTraverse(tree.left, array)
+        postOrderTraverse(tree.right, array)
+        array.append(tree.value)
 	
-	return array
+    return array

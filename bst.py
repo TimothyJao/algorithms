@@ -7,18 +7,18 @@ class BST:
     def insert(self, value):
         current_node = self
         while True:
-			if value < current_node.value:
-				if not current_node.left:
-					current_node.left = BST(value)
-					break
-				else:
-					current_node = current_node.left
-			else:
-				if not current_node.right:
-					current_node.right = BST(value)
-					break
-				else:
-					current_node = current_node.right
+            if value < current_node.value:
+                if not current_node.left:
+                	current_node.left = BST(value)
+                    break
+    			else:
+    				current_node = current_node.left
+    		else:
+    			if not current_node.right:
+    				current_node.right = BST(value)
+    				break
+    			else:
+    				current_node = current_node.right
 		
 		return self
 
