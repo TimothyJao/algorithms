@@ -1,4 +1,4 @@
-def invertBinaryTree(tree):
+def invertBinaryTree(tree): 
 	if not tree:
 		return
 	tree.right, tree.left = tree.left, tree.right
