@@ -25,3 +25,5 @@ class SuffixTrie:
                 return False
             node = node[letter]
         return self.endSymbol in node
+    
+    
