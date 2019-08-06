@@ -2,7 +2,11 @@
 At LinkedIn, we strive for a culture that embraces and represents diverse ways of thinking, background, and approaches to solving the world’s problems. We act as owners taking active and creative leadership roles in solving the problems we encounter. Tell us about yourself and how your unique experiences and background shape the point of view you will bring to LinkedIn. Describe a time when you have taken initiative to try solving a problem (in this case not a coding problem) that has positively impacted another person, community, team, or organization. 
 For this question, we recommend between 400 and 700 words.
 
-As an ex-hardware engineer, I’ve built systems of all sizes. I’ve worked with the minute in microcontrollers and small circuit boards.
+As an ex-hardware engineer, I’ve built systems of all sizes. I’ve worked with the minute in transistors and microcontrollers and the gigantic in spacecraft and robots. Thus, I know the impact each individual component has on the whole. Likewise, I know the importance of understanding how the complete system works before working on its subsystems. 
+
+My understanding of these _____ has helped me with my communication between different teams. Even though two departments may work on the same project, they do not understand the same concepts and the limitations the other party has. In the roles I had before
+
+My ability to discern the difference between these two scales was vastly important at my time at Aerojet Rocketdyne. I have had to talk with component engineers and relay information over towards system engineers and vice versa. Although they work on the same projects, they do not speak the same language most of the time. 
 
 
 
