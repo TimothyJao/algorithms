@@ -1,6 +1,6 @@
 function smallestDifference(arrayOne, arrayTwo){
-    arrayOne.sort((a,b)=>{a-b});
-    arrayTwo.sort((a,b)=>{a-b});
+    arrayOne.sort((a,b)=>a-b);
+    arrayTwo.sort((a,b)=>a-b);
 
     let idxOne = 0;
     let idxTwo = 0;
@@ -24,8 +24,6 @@ function smallestDifference(arrayOne, arrayTwo){
             smallest = current;
             smallestPair = [firstNum, secondNum]
         }
-        console.log(firstNum)
-        console.log(secondNum)
     }
 
     return smallestPair
