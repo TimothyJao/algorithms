@@ -1,4 +1,4 @@
-function invertBinaryree(tree) {
+function invertBinaryTree(tree) {
     const queue = [tree];
     while(queue.length) {
         const current = queue.shift();
