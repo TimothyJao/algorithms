@@ -1,4 +1,4 @@
-function k_nearest(current, post_offices, k){
+function kNearest(current, post_offices, k){
     let distances = [];
     for(let i = 0; i < post_offices.length; i++){
         let x = current[0] - post_offices[i][0];

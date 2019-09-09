@@ -1,4 +1,4 @@
-function treasure_island(islands){
+function treasureIsland(islands){
     let directions = [[0,1], [1,0], [0, -1], [-1,0]];
     if(islands.length === 0 || islands[0].length === 0) return -1;
     let rows = islands.length;
