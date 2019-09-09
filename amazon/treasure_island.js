@@ -40,7 +40,7 @@ let islands =
 [['S', 'O', 'O', 'S', 'S'],
 ['D', 'O', 'D', 'O', 'D'],
 ['D', 'O', 'O', 'O', 'O'],
-['X', 'D', 'D', 'D', 'D'],
-['X', 'D', 'D', 'D', 'X']]
+['X', 'D', 'O', 'D', 'D'],
+['X', 'D', 'O', 'O', 'X']]
 
 console.log(treasure_island(islands))
