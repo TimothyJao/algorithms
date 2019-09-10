@@ -6,7 +6,7 @@ function dataCenter(numOfServers, numOfConnections, connections) {
         graph[i] = [];
     }
 
-    for(let i = 0; i < connections.length; i++){
+    for(let i = 0; i < numOfConnections; i++){
         let connection = connections[i];
         graph[connection[0]].push(connection[1]);
         graph[connection[1]].push(connection[0]);
