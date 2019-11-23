@@ -13,11 +13,43 @@ code {
 }
 
 .user{
-  color: red;
+  color: black;
 }
 
-.userlist{
+li{
   list-style-type: none;
+}
+
+p{
+  margin: 0;
+}
+
+ul{
+  padding: 0;
+}
+
+.userName{
+  border: 1px solid black;
+  background: red;
+  width: 160px;
+  padding: 5px 80px;
+}
+
+.taskName{
+  border: 1px solid black;
+  width: 280px;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.userlist{
   display: flex;
   justify-content: space-around;
+}
+
+.arrow{
+  cursor: pointer;
 }

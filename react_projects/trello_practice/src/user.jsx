@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import Task from "./task"
 
 function User(props){
 
@@ -6,12 +7,25 @@ function User(props){
 
     function addTask(){
         let newTask = window.prompt("Enter a new task for this user");
-        setTasks([...tasks, <task name={newTask}></task>])
+        if (newTask) {
+            setTasks([...tasks, newTask])
+        }
     }
+
+    let listedTasks = tasks.map(task => {
+        return (
+            <li className="taskName"> 
+                <div className="arrow">{"<"}</div>
+                {task} 
+                <div className="arrow">{">"}</div>
+            </li>
+        )
+    })
 
     return(
         <>
-            <div>{props.name}</div>
+            <div className="userName">{props.name}</div>
+            <ul>{listedTasks}</ul>
             <button onClick={addTask}>Add Task</button>
         </>
     )

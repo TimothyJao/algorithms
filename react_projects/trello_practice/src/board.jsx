@@ -7,7 +7,9 @@ function Board(props){
 
     function addUser(){
         let newUser = window.prompt("Please enter a new user");
-        setUsers([...users, <User name={newUser}></User>]);
+        if (newUser) {
+            setUsers([...users, <User name={newUser}></User>]);
+        }
     }
 
     let listedUsers = users.map(user => {
