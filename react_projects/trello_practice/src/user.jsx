@@ -11,12 +11,20 @@ function User(props){
         }
     }
 
-    let listedTasks = tasks.map(task => {
+    function clickLeft(index){
+        setTasks(tasks.slice(0, index).concat(tasks.slice(index+1)));
+    }
+
+    function clickRight(index) {
+        setTasks(tasks.slice(0, index).concat(tasks.slice(index + 1)));
+    }
+
+    let listedTasks = tasks.map((task, index) => {
         return (
             <li className="taskName"> 
-                <div className="arrow">{"<"}</div>
+                <div className="arrow" onClick={() => clickLeft(index)}>{"<"}</div>
                 {task} 
-                <div className="arrow">{">"}</div>
+                <div className="arrow" onClick={() => clickRight(index)}>{">"}</div>
             </li>
         )
     })
