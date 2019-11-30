@@ -3,30 +3,18 @@ import User from "./user"
 
 function Board(props){
 
-    const [users, setUsers] = useState([<User name="Tim" index={0}></User>, <User name="John" index={1}></User>, <User name="Jack" index={2}></User>, <User name="Steph" index={3}></User>])
+    const [users, setUsers] = useState([<User name="Tim" index={0} color="blue"></User>, 
+                                        <User name="John" index={1} color="green"></User>, 
+                                        <User name="Jack" index={2} color="pink"></User>, 
+                                        <User name="Steph" index={3} color = "red"></User>])
 
-    // useEffect(() => {
-    //     let oldData = localStorage.getItem('Users');
-    //     debugger
-    //     if(oldData){
-    //         console.log(JSON.parse(oldData))
-    //     }
-    // }, [])
-
-    // useEffect(()=>{
-    //     localStorage.setItem('Users', users);
-    // })
-
-    // function addUser(){
-    //     let newUser = window.prompt("Please enter a new user");
-    //     if (newUser) {
-    //         setUsers([...users, <User name={newUser} index={users.length}></User>]);
-    //     }
-    // }
-
-    let listedUsers = users.map(user => {
-        return <li className="user">{user}</li>
+    let listedUsers = users.map((user, index) => {
+        return <li className="user" key={index}>{user}</li>
     })
+
+    function shiftRight(index, task){
+        
+    }
 
     return (
         <>

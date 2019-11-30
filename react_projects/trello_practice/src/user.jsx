@@ -13,8 +13,6 @@ function User(props){
         }
     }
 
-    
-
     function clickLeft(index){
         setTasks(tasks.slice(0, index).concat(tasks.slice(index+1)));
     }
@@ -39,11 +37,11 @@ function User(props){
     })
 
     return(
-        <>
-            <div className="userName">{props.name}</div>
+        <div>
+            <div className="userName" style={{ background: props.color }}>{props.name}</div>
             <ul>{listedTasks}</ul>
             <button onClick={addTask}>Add Task</button>
-        </>
+        </div>
     )
 }
 
