@@ -5,6 +5,15 @@ function Board(props){
 
     const [users, setUsers] = useState([])
 
+    useEffect(() => {
+        let oldData = localStorage.getItem('Users');
+        if(oldData) setUsers(oldData);
+    }, [])
+
+    useEffect(()=>{
+        localStorage.setItem('Users', users);
+    })
+
     function addUser(){
         let newUser = window.prompt("Please enter a new user");
         if (newUser) {
