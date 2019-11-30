@@ -3,14 +3,10 @@ import User from "./user"
 
 function Board(props){
 
-    const [users, setUsers] = useState([])
-
-    useEffect(() => {
-        let oldData = localStorage.getItem('Users');
-        if(oldData) setUsers(oldData);
-    }, [])
+    const [users, setUsers] = useState(localStorage.getItem('Users') || [])
 
     useEffect(()=>{
+        console.log(users)
         localStorage.setItem('Users', users);
     })
 
