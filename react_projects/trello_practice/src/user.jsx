@@ -21,22 +21,12 @@ function User(props){
 
     function clickRight(index) {
         setTasks(tasks.slice(0, index).concat(tasks.slice(index + 1)));
-    }
-
-    useEffect(()=>{
-        console.log(props.index)
-        console.log(props.getLength())
-        if(props.index !== props.getLength()){
-            rightArrow = index => (<div className="arrow" onClick={() => clickRight(index)}>{">"}</div>)
-        }
-    })
-
-    
+    }    
 
     let listedTasks = tasks.map((task, index) => {
         if (props.index === 0) { leftArrow = <div></div>} 
         else{leftArrow = <div className="arrow" onClick={() => clickLeft(index)}>{"<"}</div>}
-        if (props.index === props.getLength()) { rightArrow = <div></div>}
+        if (props.index === 3) { rightArrow = <div></div>}
         else (rightArrow = <div className="arrow" onClick={() => clickRight(index)}>{">"}</div>)
 
         return (
