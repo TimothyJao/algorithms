@@ -1,4 +1,4 @@
-var uniquePaths = function (m, n) {
+function uniquePaths (m, n) {
   let currentRow = new Array(n);
   for (let i = 0; i < n; i++) {
     currentRow[i] = 1;
