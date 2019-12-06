@@ -6,9 +6,9 @@ function groupAnagrams(strs) {
         if (!map[sortedStr]) {
             map[sortedStr] = [str];
         } else {
-            map[sortedStr].push(str)
+            map[sortedStr].push(str);
         }
     }
 
-    return Object.values(map)
+    return Object.values(map);
 }
