@@ -1,4 +1,4 @@
-var fullJustify = function (words, maxWidth) {
+function fullJustify (words, maxWidth) {
   const res = [[]];
   res[0].letters = 0;
   for (let word of words) {
