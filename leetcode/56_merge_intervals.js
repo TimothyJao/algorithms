@@ -18,8 +18,8 @@ var merge = function (intervals) {
             end = interval[1];
         }
     }
-    result.push([start, end])
-    return result
+    result.push([start, end]);
+    return result;
 };
 
 class MinHeap {
@@ -32,7 +32,7 @@ class MinHeap {
         for (let i = firstParent; i >= 0; i--) {
             this.siftDown(i, array.length - 1, array);
         }
-        return array
+        return array;
     }
 
     siftDown(current, end, heap) {
