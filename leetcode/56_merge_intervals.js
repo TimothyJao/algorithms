@@ -2,15 +2,13 @@ var merge = function (intervals) {
     if (intervals.length === 0) return [];
     let heap = new MinHeap(intervals);
     let result = [];
-    let start;
-    let end;
+    let first = heap.remove();
+    let start = first[0];
+    let end = first[1];
 
     while (heap.length() !== 0) {
         let interval = heap.remove();
-        if (start === undefined && end === undefined) {
-            start = interval[0];
-            end = interval[1];
-        } else if (interval[0] <= end && interval[1] >= end) {
+        if (interval[0] <= end && interval[1] >= end) {
             end = interval[1];
         } else if (interval[0] > end) {
             result.push([start, end]);
