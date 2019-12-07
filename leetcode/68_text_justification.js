@@ -27,4 +27,4 @@ function fullJustify (words, maxWidth) {
     res[r] = line;
   }
   return res;
-};
+}
