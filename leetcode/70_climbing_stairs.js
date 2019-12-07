@@ -1,9 +1,14 @@
-var climbStairs = function (n) {
-  let array = new Array(n + 1).fill(0);
-  array[0] = 1;
-  array[1] = 1;
-  for (let i = 2; i <= n; i++) {
-    array[i] = array[i - 1] + array[i - 2]
+function climbStairs(n) {
+  if (n === 0 || n === 1) return 1;
+  let first = 1;
+  let second = 1;
+  let temp;
+  let count = 2;
+  while (count <= n) {
+    temp = second;
+    second += first;
+    first = temp;
+    count++;
   }
-  return array[n]
-};
+  return second;
+}
