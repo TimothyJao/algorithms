@@ -2,7 +2,7 @@ import React, {useReducer} from "react"
 import User from "./user"
 
 const initialState = {
-    cards: [
+    tasks: [
         ['Tim 1', 'Tim 2'],
         ['John 1', 'John 2'],
         ['Jack 1', 'Jack 2'],
@@ -11,7 +11,15 @@ const initialState = {
 };
 
 function reducer(state, action){
-    
+    const currState = Object.assign({}, state);
+    // debugger
+    switch(action.type){
+        case "add":
+            currState.tasks[action.payload.index].push(action.payload.task);
+            return currState;
+        default:
+            return currState;
+    }
 }
 
 function Board(){
@@ -20,10 +28,10 @@ function Board(){
 
     return (
         <div className="board">
-            <User name="Tim" dispatch={dispatch} cards={state.cards[0]} color="green" index={0}></User>
-            <User name="John" dispatch={dispatch} cards={state.cards[1]} color="red" index={1}></User>
-            <User name="Jack" dispatch={dispatch} cards={state.cards[2]} color="pink" index={2}></User>
-            <User name="Steph" dispatch={dispatch} cards={state.cards[3]} color="skyblue" index={3}></User>            
+            <User name="Tim" dispatch={dispatch} tasks={state.tasks[0]} color="green" index={0}></User>
+            <User name="John" dispatch={dispatch} tasks={state.tasks[1]} color="red" index={1}></User>
+            <User name="Jack" dispatch={dispatch} tasks={state.tasks[2]} color="pink" index={2}></User>
+            <User name="Steph" dispatch={dispatch} tasks={state.tasks[3]} color="skyblue" index={3}></User>            
         </div>
     )
 }

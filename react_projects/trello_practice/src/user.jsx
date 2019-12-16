@@ -9,7 +9,13 @@ function User(props){
     function addTask(){
         let newTask = window.prompt("Enter a new task for this user");
         if (newTask) {
-            setTasks([...tasks, newTask]);
+            props.dispatch({
+                type: "add", 
+                payload: {
+                    task: newTask,
+                    index: props.index
+                }
+            });
         }
     }
 
@@ -21,7 +27,7 @@ function User(props){
         setTasks(tasks.slice(0, index).concat(tasks.slice(index + 1)));
     }    
 
-    let listedTasks = tasks.map((task, index) => {
+    let listedTasks = props.tasks.map((task, index) => {
         if (props.index === 0) { leftArrow = <div></div>} 
         else{leftArrow = <div className="arrow" onClick={() => clickLeft(index)}>{"<"}</div>}
         if (props.index === 3) { rightArrow = <div></div>}
