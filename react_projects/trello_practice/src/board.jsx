@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer} from "react"
+import React, {useReducer} from "react"
 import User from "./user"
 
 const initialState = {
@@ -8,10 +8,10 @@ const initialState = {
         ['Jack 1', 'Jack 2'],
         ['Steph 1', 'Steph 2']
     ]
-}
+};
 
 function reducer(state, action){
-
+    
 }
 
 function Board(){
@@ -19,12 +19,12 @@ function Board(){
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <>
-            <User name="Tim" dispatch={dispatch} cards={state.cards[0]} color="green"></User>
-            <User name="John" dispatch={dispatch} cards={state.cards[0]} color="red"></User>
-            <User name="Jack" dispatch={dispatch} cards={state.cards[0]} color="pink"></User>
-            <User name="Steph" dispatch={dispatch} cards={state.cards[0]} color="skyblue"></User>            
-        </>
+        <div className="board">
+            <User name="Tim" dispatch={dispatch} cards={state.cards[0]} color="green" index={0}></User>
+            <User name="John" dispatch={dispatch} cards={state.cards[1]} color="red" index={1}></User>
+            <User name="Jack" dispatch={dispatch} cards={state.cards[2]} color="pink" index={2}></User>
+            <User name="Steph" dispatch={dispatch} cards={state.cards[3]} color="skyblue" index={3}></User>            
+        </div>
     )
 }
 

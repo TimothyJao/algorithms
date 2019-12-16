@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react";
 
 function User(props){
 
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(props.cards);
     let leftArrow;
     let rightArrow;
 
     function addTask(){
         let newTask = window.prompt("Enter a new task for this user");
         if (newTask) {
-            setTasks([...tasks, newTask])
+            setTasks([...tasks, newTask]);
         }
     }
 
