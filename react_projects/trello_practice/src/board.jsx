@@ -1,24 +1,29 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useReducer} from "react"
 import User from "./user"
 
-function Board(props){
+const initialState = {
+    cards: [
+        ['Tim 1', 'Tim 2'],
+        ['John 1', 'John 2'],
+        ['Jack 1', 'Jack 2'],
+        ['Steph 1', 'Steph 2']
+    ]
+}
 
-    const [users, setUsers] = useState([<User name="Tim" index={0} color="blue"></User>, 
-                                        <User name="John" index={1} color="green"></User>, 
-                                        <User name="Jack" index={2} color="pink"></User>, 
-                                        <User name="Steph" index={3} color = "red"></User>])
+function reducer(state, action){
 
-    let listedUsers = users.map((user, index) => {
-        return <li className="user" key={index}>{user}</li>
-    })
+}
 
-    function shiftRight(index, task){
-        
-    }
+function Board(){
+
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
         <>
-            <ul className="userlist">{listedUsers}</ul>
+            <User name="Tim" dispatch={dispatch} cards={state.cards[0]} color="green"></User>
+            <User name="John" dispatch={dispatch} cards={state.cards[0]} color="red"></User>
+            <User name="Jack" dispatch={dispatch} cards={state.cards[0]} color="pink"></User>
+            <User name="Steph" dispatch={dispatch} cards={state.cards[0]} color="skyblue"></User>            
         </>
     )
 }
