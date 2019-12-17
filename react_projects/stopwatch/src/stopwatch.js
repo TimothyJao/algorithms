@@ -11,21 +11,35 @@ function Stopwatch(){
 
   })
 
-  function start(){
-    timeout = setTimeout(()=>{setTime(time+1);}, 1000);
-    setShouldStart(true);
+  function startStop(){
+    if(!shouldStart){
+      timeout = setTimeout(() => { setTime(time + 1); }, 1000);
+      setShouldStart(true);
+    } else{
+      clearTimeout(timeout);
+      setShouldStart(false);
+    }  
+  }
+
+  function reset(){
+    clearTimeout(timeout);
+    setTime(0);
+    setShouldStart(false);
   }
 
   useEffect(() => {
     if (shouldStart) {
       timeout = setTimeout(() => { setTime(time + 1) }, 1000);
     }
+
+    return () => {return clearTimeout(timeout);};
   });
 
   return(
     <>
       <div>{time}</div>
-      <button onClick={start}>{shouldStart ? "Stop" : "Start"}</button>
+      <button onClick={startStop}>{shouldStart ? "Stop" : "Start"}</button>
+      <button onClick={reset}>{"Reset"}</button>
     </>
   )
 }
