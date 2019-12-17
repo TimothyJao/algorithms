@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 
 function User(props){
 
-    const [tasks, setTasks] = useState(props.cards);
     let leftArrow;
     let rightArrow;
 
@@ -30,7 +29,13 @@ function User(props){
     }
 
     function clickRight(index) {
-        setTasks(tasks.slice(0, index).concat(tasks.slice(index + 1)));
+        props.dispatch({
+            type: "move right",
+            payload: {
+                userIndex: props.index,
+                taskIndex: index
+            }
+        })
     }    
 
     let listedTasks = props.tasks.map((task, index) => {
@@ -40,7 +45,7 @@ function User(props){
         else (rightArrow = <div className="arrow" onClick={() => clickRight(index)}>{">"}</div>)
 
         return (
-            <li className="taskName"> 
+            <li className="taskName" key={index}> 
                 {leftArrow}
                 {task} 
                 {rightArrow}

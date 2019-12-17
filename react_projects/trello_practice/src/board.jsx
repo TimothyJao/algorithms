@@ -1,14 +1,19 @@
-import React, {useReducer} from "react"
-import User from "./user"
+import React, {useReducer, useEffect} from "react";
+import User from "./user";
 
-const initialState = {
-    tasks: [
-        ['Tim 1', 'Tim 2'],
-        ['John 1', 'John 2'],
-        ['Jack 1', 'Jack 2'],
-        ['Steph 1', 'Steph 2']
-    ]
-};
+let initialState = window.localStorage.getItem('tasks')
+
+if(!initialState){
+    initialState = {
+        tasks: [
+            ['Tim 1', 'Tim 2'],
+            ['John 1', 'John 2'],
+            ['Jack 1', 'Jack 2'],
+            ['Steph 1', 'Steph 2']
+        ]
+    };
+}
+
 
 function reducer(state, action){
     const currState = Object.assign({}, state);
@@ -23,6 +28,12 @@ function reducer(state, action){
             currState.tasks[userIndex - 1].push(currState.tasks[userIndex][taskIndex]);
             currState.tasks[userIndex].splice(taskIndex, 1);
             return currState;
+        case "move right":
+            userIndex = action.payload.userIndex;
+            taskIndex = action.payload.taskIndex;
+            currState.tasks[userIndex + 1].push(currState.tasks[userIndex][taskIndex]);
+            currState.tasks[userIndex].splice(taskIndex, 1);
+            return currState;
         default:
             return currState;
     }
@@ -31,6 +42,8 @@ function reducer(state, action){
 function Board(){
 
     const [state, dispatch] = useReducer(reducer, initialState);
+
+    
 
     return (
         <div className="board">
