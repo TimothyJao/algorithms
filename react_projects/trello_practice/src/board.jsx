@@ -1,8 +1,7 @@
 import React, {useReducer, useEffect} from "react";
 import User from "./user";
 
-let initialState = window.localStorage.getItem('tasks')
-
+let initialState = JSON.parse(window.localStorage.getItem('tasks'));
 if(!initialState){
     initialState = {
         tasks: [
@@ -43,7 +42,9 @@ function Board(){
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    
+    useEffect( () => {
+        window.localStorage.setItem('tasks', JSON.stringify(state));
+    });
 
     return (
         <div className="board">
