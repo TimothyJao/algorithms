@@ -20,7 +20,13 @@ function User(props){
     }
 
     function clickLeft(index){
-        setTasks(tasks.slice(0, index).concat(tasks.slice(index+1)));
+        props.dispatch({
+            type: "move left",
+            payload: {
+                userIndex: props.index,
+                taskIndex: index
+            }
+        });
     }
 
     function clickRight(index) {

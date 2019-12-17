@@ -12,10 +12,16 @@ const initialState = {
 
 function reducer(state, action){
     const currState = Object.assign({}, state);
-    // debugger
+    let userIndex, taskIndex;
     switch(action.type){
         case "add":
             currState.tasks[action.payload.index].push(action.payload.task);
+            return currState;
+        case "move left":
+            userIndex = action.payload.userIndex;
+            taskIndex = action.payload.taskIndex;
+            currState.tasks[userIndex - 1].push(currState.tasks[userIndex][taskIndex]);
+            currState.tasks[userIndex].splice(taskIndex, 1);
             return currState;
         default:
             return currState;
