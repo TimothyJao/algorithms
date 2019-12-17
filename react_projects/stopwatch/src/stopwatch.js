@@ -3,42 +3,38 @@ import React, {useState, useEffect} from 'react';
 function Stopwatch(){
 
   const [time, setTime] = useState(0);
-  const [shouldStart, setShouldStart] = useState(false);
+  const [start, setStart] = useState(false);
 
   let timeout;
 
-  useEffect( () => {
-
-  })
-
   function startStop(){
-    if(!shouldStart){
-      timeout = setTimeout(() => { setTime(time + 1); }, 1000);
-      setShouldStart(true);
+    if(!start){
+      timeout = setTimeout(() => { setTime(time + 1); }, 100);
+      setStart(true);
     } else{
       clearTimeout(timeout);
-      setShouldStart(false);
+      setStart(false);
     }  
   }
 
   function reset(){
     clearTimeout(timeout);
     setTime(0);
-    setShouldStart(false);
+    setStart(false);
   }
 
   useEffect(() => {
-    if (shouldStart) {
-      timeout = setTimeout(() => { setTime(time + 1) }, 1000);
+    if (start) {
+      timeout = setTimeout(() => {setTime( currTime => currTime + 1)}, 100);
     }
 
-    return () => {return clearTimeout(timeout);};
+    return () => clearTimeout(timeout);
   });
 
   return(
     <>
       <div>{time}</div>
-      <button onClick={startStop}>{shouldStart ? "Stop" : "Start"}</button>
+      <button onClick={startStop}>{start ? "Stop" : "Start"}</button>
       <button onClick={reset}>{"Reset"}</button>
     </>
   )
