@@ -5,37 +5,32 @@ function Stopwatch(){
   const [time, setTime] = useState(0);
   const [start, setStart] = useState(false);
 
-  let timeout;
+  function resetLap(){
+    if(start){
 
-  function startStop(){
-    if(!start){
-      timeout = setTimeout(() => { setTime(time + 1); }, 100);
-      setStart(true);
     } else{
-      clearTimeout(timeout);
+      setTime(0);
       setStart(false);
-    }  
-  }
-
-  function reset(){
-    clearTimeout(timeout);
-    setTime(0);
-    setStart(false);
+    }
+    
   }
 
   useEffect(() => {
+    let timeout;
     if (start) {
-      timeout = setTimeout(() => {setTime( currTime => currTime + 1)}, 100);
+      timeout = setTimeout(() => {setTime(currTime => currTime + 1); console.log("test")}, 1000);
     }
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    }
   });
 
   return(
     <>
       <div>{time}</div>
-      <button onClick={startStop}>{start ? "Stop" : "Start"}</button>
-      <button onClick={reset}>{"Reset"}</button>
+      <button onClick={() => setStart(currStart => !currStart)}>{start ? "Stop" : "Start"}</button>
+      <button onClick={resetLap}>{start ? "Lap" : "Reset"}</button>
     </>
   )
 }
