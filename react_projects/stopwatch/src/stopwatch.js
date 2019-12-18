@@ -19,13 +19,12 @@ function Stopwatch(){
   }
 
   useEffect(() => {
-    let interval;
     if (!isRunning) {return}
     
-    interval = setInterval(() => { setTime(currTime => currTime + 1); }, 100);
+    const intervalId = setInterval(() => { setTime(currTime => currTime + 1); }, 100);
 
     return () => {
-      clearInterval(interval);
+      clearInterval(intervalId);
     };
   }, [isRunning]);
 
