@@ -19,15 +19,15 @@ function Stopwatch(){
   }
 
   useEffect(() => {
-    let timeout;
-    if (isRunning) {
-      timeout = setTimeout(() => {setTime(currTime => currTime + 1);}, 100);
-    }
+    let interval;
+    if (!isRunning) {return}
+    
+    interval = setInterval(() => { setTime(currTime => currTime + 1); }, 100);
 
     return () => {
-      clearTimeout(timeout);
+      clearInterval(interval);
     };
-  });
+  }, [isRunning]);
 
   return(
     <>
