@@ -10,3 +10,7 @@ This section contains all the leetcode questions I have done. I am constantly ad
 ## react-projects
 
 This section contains a series of simple components that I created using react and react-hooks. React has so many nuances and quirks and I hope to learn all I can.
+
+### Trello
+
+I made a very simple trello code derived from TripleByte's list of MVPs. My main takeaway here is the use of useReducer and how it can manage the state of a component and its sub-components.
