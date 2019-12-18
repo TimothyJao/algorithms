@@ -13,7 +13,7 @@ This section contains a series of simple components that I created using react a
 
 ### Trello
 
-I made a very simple trello code derived from TripleByte's list of MVPs. My main takeaway here is the use of useReducer and how it can manage the state of a component and its sub-components. In addition, I saw the clear difference between container and presentational components.
+I made a very simple trello app derived from TripleByte's list of MVPs. My main takeaway here is the use of useReducer and how it can manage the state of a component and its sub-components. In addition, I saw the clear difference between container and presentational components.
 
 ### Stopwatch
 
