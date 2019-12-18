@@ -3,34 +3,40 @@ import React, {useState, useEffect} from 'react';
 function Stopwatch(){
 
   const [time, setTime] = useState(0);
-  const [start, setStart] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
+  const [laps, setLaps] = useState([]);
 
   function resetLap(){
-    if(start){
-
+    if(isRunning){
+      const prevTotal = laps.length > 0 ? laps.reduce((acc, curr) => acc + curr, 0) : 0;
+      const currentLap = laps.length > 0 ? time - prevTotal : time;
+      isRunning && setLaps([...laps, currentLap]);
     } else{
       setTime(0);
-      setStart(false);
+      setIsRunning(false);
+      setLaps([]);
     }
-    
   }
 
   useEffect(() => {
     let timeout;
-    if (start) {
-      timeout = setTimeout(() => {setTime(currTime => currTime + 1); console.log("test")}, 1000);
+    if (isRunning) {
+      timeout = setTimeout(() => {setTime(currTime => currTime + 1);}, 100);
     }
 
     return () => {
       clearTimeout(timeout);
-    }
+    };
   });
 
   return(
     <>
       <div>{time}</div>
-      <button onClick={() => setStart(currStart => !currStart)}>{start ? "Stop" : "Start"}</button>
-      <button onClick={resetLap}>{start ? "Lap" : "Reset"}</button>
+      <button onClick={() => setIsRunning(currisRunning => !currisRunning)}>{isRunning ? "Stop" : "Start"}</button>
+      <button onClick={resetLap}>{isRunning ? "Lap" : "Reset"}</button>
+      {laps.map(lap => {
+        return <li>{lap}</li>
+      })}
     </>
   )
 }
