@@ -13,4 +13,8 @@ This section contains a series of simple components that I created using react a
 
 ### Trello
 
-I made a very simple trello code derived from TripleByte's list of MVPs. My main takeaway here is the use of useReducer and how it can manage the state of a component and its sub-components.
+I made a very simple trello code derived from TripleByte's list of MVPs. My main takeaway here is the use of useReducer and how it can manage the state of a component and its sub-components. In addition, I saw the clear difference between container and presentational components.
+
+### Stopwatch
+
+Made a stop watch that had start, stop, reset and lap functionalities. My main takeaway from this project is the importance of the retuned callback from useEffect. That callback is only called if the dependencies array is changed and when the component dismounts.
