@@ -4,4 +4,9 @@ Everything that I have worked on and learned during my job search can be found h
 
 ## leetcode
 
-This section contains all the leetcode questions I have done. I am constantly adding questions everyday as I am doing them!
+This section contains all the leetcode questions I have done. I am constantly adding questions as I am doing them!
+
+
+## react-projects
+
+This section contains a series of simple components that I created using react and react-hooks. React has so many nuances and quirks and I hope to learn all I can.
