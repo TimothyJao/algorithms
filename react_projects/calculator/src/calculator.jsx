@@ -14,9 +14,36 @@ function Calculator(){
 
     function clearValue(num){
         setValue("0")
+        setPrevValue("0");
+        setOperator("");
     }
 
+    function chooseOperator(operator){
+        setPrevValue(value);
+        setValue('0');
+        setOperator(operator);
+    }
 
+    function calculate(){
+        if(operator.length > 0){
+            switch (operator) {
+                case '+':
+                    setValue(currValue => (parseInt(prevValue) + parseInt(currValue)).toString())
+                    break;
+                case '-':
+                    setValue(currValue => (parseInt(prevValue) - parseInt(currValue)).toString())
+                    break;
+                case '*':
+                    setValue(currValue => (parseInt(prevValue) * parseInt(currValue)).toString())
+                    break;
+                case '/':
+                    setValue(currValue => (parseInt(prevValue) / parseInt(currValue)).toString())
+                    break;
+            }
+            setPrevValue("0");
+            setOperator("")
+        }
+    }
 
     return(
         <div>
@@ -41,14 +68,14 @@ function Calculator(){
                     <div className="row">
                         <div className="button" onClick={clearValue}> Clear </div>
                         <div className="button" onClick={() => changeValue('0')}> 0 </div>
-                        <div className="button" onClick={() => changeValue('1')}> = </div>
+                        <div className="button" onClick={() => calculate()}> = </div>
                     </div>
                 </div>
                 <div className="operatoins">
-                    <div className="button"> + </div>
-                    <div className="button"> - </div>
-                    <div className="button"> * </div>
-                    <div className="button"> = </div>
+                    <div className="button" onClick={() => chooseOperator('+')}> + </div>
+                    <div className="button" onClick={() => chooseOperator('-')}> - </div>
+                    <div className="button" onClick={() => chooseOperator('*')}> * </div>
+                    <div className="button" onClick={() => chooseOperator('/')}> / </div>
                 </div>
             </div>
             
