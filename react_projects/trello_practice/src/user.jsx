@@ -55,7 +55,7 @@ function User(props){
 
     return(
         <div>
-            <div className="userName" style={{ background: props.color }}>{props.name}</div>
+            <div className="userName" style={{ background: props.userColor }}>{props.name}</div>
             <ul>{listedTasks}</ul>
             <button onClick={addTask}>Add Task</button>
         </div>
