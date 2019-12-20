@@ -48,10 +48,10 @@ function Board(){
 
     return (
         <div className="board">
-            <User name="Tim" dispatch={dispatch} tasks={state.tasks[0]} color="green" index={0}></User>
-            <User name="John" dispatch={dispatch} tasks={state.tasks[1]} color="red" index={1}></User>
-            <User name="Jack" dispatch={dispatch} tasks={state.tasks[2]} color="pink" index={2}></User>
-            <User name="Steph" dispatch={dispatch} tasks={state.tasks[3]} color="skyblue" index={3}></User>            
+            <User name="Tim" dispatch={dispatch} tasks={state.tasks[0]} userColor="green" index={0}></User>
+            <User name="John" dispatch={dispatch} tasks={state.tasks[1]} userColor="red" index={1}></User>
+            <User name="Jack" dispatch={dispatch} tasks={state.tasks[2]} userColor="pink" index={2}></User>
+            <User name="Steph" dispatch={dispatch} tasks={state.tasks[3]} userColor="skyblue" index={3}></User>            
         </div>
     )
 }
