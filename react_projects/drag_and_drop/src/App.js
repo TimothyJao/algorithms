@@ -1,23 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import Draggable from './draggable';
+import Droppable from './droppable';
+
+const Wrapper = styled.div`
+  width: 100%;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+`;
+
+const Item = styled.div`
+padding: 8px;
+color: #555;
+background-color: white;
+border-radius: 3px;
+`;
+
+const droppableStyle = {
+  backgroundColor: '#555',
+  width: '250px',
+  height: '400px',
+  margin: '32px'
+};
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Wrapper>
+          <Droppable id="dr1" style={droppableStyle}>
+            <Draggable id="item1" style={{margin:'8px'}}><Item>Some text</Item></Draggable>
+            <Draggable id="item2" style={{margin:'8px'}}><Item>Some other text</Item></Draggable>
+          </Droppable>
+          <Droppable id="dr2" style={droppableStyle}></Droppable>
+        </Wrapper>
       </header>
     </div>
   );
