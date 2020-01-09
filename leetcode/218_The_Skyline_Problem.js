@@ -102,3 +102,65 @@ Heap.prototype.extract = function () {
     this.bubbleDown(0);
     return res;
 }
+
+var getSkyline = function (buildings) {
+    var skylines = [];
+
+    var START = 1;
+    var END = 2;
+
+    for (var i = 0; i < buildings.length; i++) {
+        var [li, ri, hi] = buildings[i];
+
+        var start = { type: START, x: li, y: hi };
+        var end = { type: END, x: ri, start: start };
+
+        skylines.push(start, end);
+    }
+
+    skylines.sort((a, b) => {
+        if (a.x < b.x) { return -1; }
+        if (b.x < a.x) { return 1; }
+
+        if (a.type < b.type) { return -1; }
+        if (b.type < a.type) { return 1; }
+
+        if (a.type === START) {
+            return b.y - a.y;
+        }
+
+        return a.start.y - b.start.y;
+    })
+
+
+    var out = [];
+    var heap = new Heap(obj => obj.y);
+
+    function getHeight() {
+        var obj = heap.peek();
+        if (obj == null) { return 0; }
+        return obj.y;
+    }
+
+    for (var i = 0; i < skylines.length; i++) {
+        var entry = skylines[i];
+
+        if (entry.type === START) {
+            var h = getHeight();
+
+            if (entry.y > h) {
+                out.push([entry.x, entry.y])
+            }
+
+            heap.insert(entry);
+        } else {
+            heap.remove(entry.start);
+
+            if (entry.start.y > getHeight()) {
+                out.push([entry.x, getHeight()])
+            }
+        }
+    }
+
+    return out;
+};
